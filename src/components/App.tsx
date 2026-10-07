@@ -111,7 +111,7 @@ export default function App() {
         </BoardGrid>
         <BoardGrid
           id="enemy-board"
-          heading="Enemy waters"
+          heading="Enemy fleet"
           board={state.computerBoard}
           showShips={phase === 'gameover'}
           mode={phase === 'playing' && turn === 'player' ? 'target' : 'locked'}

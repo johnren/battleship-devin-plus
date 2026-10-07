@@ -34,6 +34,8 @@ function pickShot(labels: string[]): number {
 test('plays a full seeded game to game over', async ({ page }) => {
   await page.goto(`?seed=${SEED}`)
   await expect(page.getByRole('heading', { name: 'Battleship' })).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'Your fleet' })).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'Enemy fleet' })).toBeVisible()
 
   const start = page.getByRole('button', { name: 'Start' })
   await expect(start).toBeDisabled()

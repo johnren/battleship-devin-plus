@@ -42,7 +42,7 @@ export default function BoardGrid({
   const pointerType = useRef<string | null>(null)
 
   return (
-    <section className="board" aria-labelledby={`${id}-heading`}>
+    <section className="board" id={id} aria-labelledby={`${id}-heading`}>
       <h2 className="board__heading" id={`${id}-heading`}>
         {heading}
       </h2>
