@@ -26,7 +26,7 @@ v2 deliberately differs from [SPEC.md](SPEC.md) (kept as written for v1):
 
 - The computer's board heading is **"Enemy fleet"** instead of "Enemy waters".
 - "Your fleet" has its own color palette (CSS variables scoped to `#player-board`): water `#B8D6F0`, ships `#2B3A48`, hit ✕ `#C42A30`, miss dot `#1C3A5E`, grid lines `#4F7397`, darker placement previews, and a focus ring with a dark inner band so it shows on the light water. The enemy board keeps the original colors.
-- Fleet status squares sit directly after each ship name instead of at the right edge.
+- Fleet status squares sit directly after each ship name instead of at the right edge, and each status list is centered under its grid's cells.
 
 ## Local development
 
