@@ -1,8 +1,10 @@
 # Battleship
 
+> **This is v2** (battleship-devin-plus). The original v1 is frozen at https://johnren.github.io/battleship-devin/ ([repo](https://github.com/johnren/battleship-devin)).
+
 Single-player Battleship in the browser: you against a computer opponent on a 10×10 grid.
 
-**Live:** https://johnren.github.io/battleship-devin/
+**Live:** https://johnren.github.io/battleship-devin-plus/
 
 Add `?seed=<number>` to the URL (for example `?seed=123`) to make the computer's fleet and every computer shot reproducible.
 
@@ -22,7 +24,7 @@ Requires Node 24 (see `.nvmrc`).
 
 ```sh
 npm ci
-npm run dev        # http://localhost:5173/battleship-devin/
+npm run dev        # http://localhost:5173/battleship-devin-plus/
 ```
 
 ## Tests and checks

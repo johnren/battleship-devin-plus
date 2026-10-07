@@ -7,7 +7,7 @@ export default defineConfig({
   retries: process.env.CI ? 1 : 0,
   reporter: process.env.CI ? [['list'], ['html', { open: 'never' }]] : 'list',
   use: {
-    baseURL: 'http://localhost:4173/battleship-devin/',
+    baseURL: 'http://localhost:4173/battleship-devin-plus/',
     trace: 'retain-on-failure',
   },
   projects: [
@@ -17,7 +17,7 @@ export default defineConfig({
   ],
   webServer: {
     command: 'npm run build && npm run preview -- --port 4173 --strictPort',
-    url: 'http://localhost:4173/battleship-devin/',
+    url: 'http://localhost:4173/battleship-devin-plus/',
     reuseExistingServer: !process.env.CI,
     timeout: 120_000,
   },
