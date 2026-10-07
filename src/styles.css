@@ -348,14 +348,23 @@ button {
   margin: 12px 0 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(140px, max-content));
+  justify-content: center;
   gap: 6px 12px;
+  /* Skip the grid's row-label column (1 of 11 equal columns, 2 px gaps) so the list centers under the cells. */
+  padding-left: calc((100% + 2px) / 11);
+}
+
+@media (pointer: coarse) {
+  .fleet {
+    padding-left: 26px;
+  }
 }
 
 .fleet__ship {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 8px;
 }
 
@@ -379,6 +388,72 @@ button {
 .fleet__cell--hit {
   background: var(--hit);
   border-color: var(--hit);
+}
+
+/* "Your fleet" board: light water, so its cells, markers, previews and focus ring use their own colors. */
+#player-board {
+  --player-water: #b8d6f0;
+  --player-grid-line: #4f7397;
+  --player-ship: #2b3a48;
+  --player-hit: #c42a30;
+  --player-miss: #1c3a5e;
+  --player-preview-valid: #18663e;
+  --player-preview-invalid: #9e1f25;
+  --player-focus-inner: #0b1726;
+}
+
+#player-board .cell {
+  background: var(--player-water);
+  border-color: var(--player-grid-line);
+}
+
+#player-board .cell--ship {
+  background: var(--player-ship);
+}
+
+#player-board .cell--sunk {
+  background: var(--sunk);
+}
+
+#player-board .cell--preview-valid::after,
+#player-board .cell--preview-invalid::after {
+  opacity: 0.85;
+}
+
+#player-board .cell--preview-valid::after {
+  background: var(--player-preview-valid);
+}
+
+#player-board .cell--preview-invalid::after {
+  background: var(--player-preview-invalid);
+}
+
+#player-board .marker--miss {
+  background: var(--player-miss);
+}
+
+#player-board .marker--hit {
+  color: var(--player-hit);
+}
+
+#player-board .cell--sunk .marker--hit {
+  color: var(--text);
+}
+
+/* The amber ring alone is hard to see on light water; an inner dark band keeps it visible on water and ships. */
+#player-board .cell:focus-visible {
+  outline-offset: -2px;
+  box-shadow: inset 0 0 0 4px var(--player-focus-inner);
+}
+
+#player-board .fleet__cell {
+  background: var(--player-water);
+  border-color: var(--player-grid-line);
+}
+
+#player-board .fleet__cell--hit {
+  background: var(--player-hit);
+  border-color: var(--player-hit);
 }
 
 /* Message log */

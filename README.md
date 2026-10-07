@@ -10,13 +10,23 @@ Add `?seed=<number>` to the URL (for example `?seed=123`) to make the computer's
 
 ## How to play
 
-1. **Place your fleet** on "Your fleet": pick a ship (Carrier 5, Battleship 4, Cruiser 3, Submarine 3, Destroyer 2), hover to preview (green = valid, red = invalid), click to place. Rotate with the **Rotate** button, **R**, or **Space**. On touch screens, tap once to preview and tap the same cell again to place. On touch screens cells are 44 px, so on narrow phones each grid scrolls sideways. **Randomize** places everything for you, **Reset** clears the board.
+1. **Place your fleet** on "Your fleet": pick a ship (Carrier 5, Battleship 4, Cruiser 3, Submarine 3, Destroyer 2), hover to preview (dark green = valid, dark red = invalid), click to place. Rotate with the **Rotate** button, **R**, or **Space**. On touch screens, tap once to preview and tap the same cell again to place. On touch screens cells are 44 px, so on narrow phones each grid scrolls sideways. **Randomize** places everything for you, **Reset** clears the board.
 2. **Start** unlocks once all five ships are placed.
-3. **Fire** by clicking a cell on "Enemy waters" (or Tab to it and press Enter). You always fire first; turns alternate and a hit does not earn another shot. Firing at a cell you already tried is rejected and costs nothing.
+3. **Fire** by clicking a cell on "Enemy fleet" (or Tab to it and press Enter). You always fire first; turns alternate and a hit does not earn another shot. Firing at a cell you already tried is rejected and costs nothing.
 4. The computer fires about 600 ms later. The message log and fleet status panels show what happened.
 5. Sink all 17 enemy ship cells to win. At game over the enemy's remaining ships are revealed; **Play Again** starts fresh.
 
-Cell markers: red ✕ = hit, pale dot = miss, dark red cell with a pale ✕ = sunk. Each cell's state is also in its accessible name (for example "B7, hit").
+Boards: "Your fleet" has light-blue water with dark slate ships; "Enemy fleet" has dark-blue water. Cell markers: red ✕ = hit, dot = miss (dark navy on "Your fleet", pale on "Enemy fleet"), dark red cell with a pale ✕ = sunk. Each cell's state is also in its accessible name (for example "B7, hit").
+
+Each fleet status list shows a row of squares right after every ship name, one per cell; filled squares are hits. On "Your fleet" the squares use the board's water and hit colors.
+
+## Changes from the original spec
+
+v2 deliberately differs from [SPEC.md](SPEC.md) (kept as written for v1):
+
+- The computer's board heading is **"Enemy fleet"** instead of "Enemy waters".
+- "Your fleet" has its own color palette (CSS variables scoped to `#player-board`): water `#B8D6F0`, ships `#2B3A48`, hit ✕ `#C42A30`, miss dot `#1C3A5E`, grid lines `#4F7397`, darker placement previews, and a focus ring with a dark inner band so it shows on the light water. The enemy board keeps the original colors.
+- Fleet status squares sit directly after each ship name instead of at the right edge, and each status list is centered under its grid's cells.
 
 ## Local development
 
