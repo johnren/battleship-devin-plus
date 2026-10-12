@@ -47,6 +47,8 @@ npx playwright install --with-deps   # once, to get browsers
 npm run test:e2e   # Playwright: builds, serves on :4173, runs e2e/ in Chromium, Firefox, WebKit
 ```
 
+[TESTS.md](TESTS.md) lists every test and check run while building the game.
+
 CI (`.github/workflows/ci.yml`) runs lint, unit tests, build and end-to-end tests on every PR and push; pushes to `main` that pass are deployed to GitHub Pages.
 
 ## Architecture
